@@ -1,0 +1,20 @@
+.DS_STORE
+
+# Sass Generated Files
+config.rb
+.sass-cache/
+*.css.map
+
+# compiled folder
+dist
+
+# Node
+node_modules
+npm-debug.log
+gulp/secrets.coffee
+
+# Webpack
+.happypack
+
+# Fabricator Symlinked Assets
+styleguide/src/assets/toolkit/assets
