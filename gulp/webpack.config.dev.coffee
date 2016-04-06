@@ -1,4 +1,3 @@
-HappyPack = require 'happypack'
 path      = require 'path'
 webpack   = require 'webpack'
 
