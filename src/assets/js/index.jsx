@@ -1,4 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-render(<div>Hello World</div>, document.querySelector('.js-mount-point'));
+import App from './App.jsx';
+
+render(<App />, document.querySelector('.js-mount-point'));
