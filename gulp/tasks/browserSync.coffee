@@ -16,17 +16,10 @@ gulp.task 'browser-sync', () ->
           # IMPORTANT: dev middleware can't access config, so we should
           # provide publicPath by ourselves
           publicPath: webpackConfig.output.publicPath,
-
-          hot: true
-          inline: true
-          # pretty colored output
           stats: {
             colors: true
             chunks: false
           }
-
-          # for other settings see
-          # http://webpack.github.io/docs/webpack-dev-middleware.html
         }),
 
         # bundler should be the same as above
@@ -34,13 +27,6 @@ gulp.task 'browser-sync', () ->
       ]
     injectchanges: true
     open: false
-    # files: [
-    #   "#{conf.path.dist.css}/**/*.css"
-    #   "#{conf.path.dist.app}/**/*.html"
-    # ]
-    # notify: false
+    notify: false
     # tunnel: true
   }
-
-gulp.task 'bs-reload', () ->
-  global.browserSync.reload()

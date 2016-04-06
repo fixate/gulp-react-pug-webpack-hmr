@@ -12,7 +12,6 @@ module.exports =
       js:     "#{devAssets}/js"
       img:    "#{devAssets}/img"
       fnt:    "#{devAssets}/fnt"
-      scss:   "#{devAssets}/css/scss"
     dist:
       app: distPath
       assets: "#{distAssets}"
@@ -20,4 +19,3 @@ module.exports =
       js:     "#{distAssets}/js"
       img:    "#{distAssets}/img"
       fnt:    "#{distAssets}/fnt"
-      scss:   "#{distAssets}/css/scss"

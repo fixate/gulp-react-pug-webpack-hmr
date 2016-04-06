@@ -13,12 +13,12 @@ conf = require '../gulpconfig'
 #     $CSS
 #*------------------------------------*/
 gulp.task 'css', () ->
-  gulp.src(["#{conf.path.dev.scss}/**/*.{scss,sass}"])
+  gulp.src(["#{conf.path.dev.css}/**/*.{scss,sass}"])
     .pipe sourcemaps.init()
     .pipe sass().on('error', sass.logError)
     .pipe autoprefixer({browsers: ['last 2 versions']})
     .pipe sourcemaps.write()
-    .pipe gulp.dest(conf.path.dev.css)
+    .pipe gulp.dest(conf.path.dist.css)
 
 
 
