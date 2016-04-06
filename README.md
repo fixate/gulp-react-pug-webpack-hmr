@@ -5,4 +5,4 @@ from Gulp automation, BrowserSync reloading, and Jade templates.
 
 Tasks are managed in `gulp/tasks`.
 
-Gulp builds assets to `dist/` which BrowserSync serves from.
+Gulp builds assets to `dist/` which BrowserSync serves.
