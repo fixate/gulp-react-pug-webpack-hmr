@@ -1,3 +1,5 @@
-export default {
+const PATHNAME = '';
+
+export {
   PATHNAME: '',
 };
