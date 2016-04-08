@@ -1,7 +1,6 @@
-gulp        = require 'gulp'
-imagemin    = require 'gulp-imagemin'
-regexRename = require 'gulp-regex-rename'
-pngquant    = require 'imagemin-pngquant'
+gulp     = require 'gulp'
+imagemin = require 'gulp-imagemin'
+pngquant = require 'imagemin-pngquant'
 
 conf = require '../gulpconfig'
 
@@ -10,17 +9,30 @@ conf = require '../gulpconfig'
 
 
 #*------------------------------------*\
-#     $OPTIMISE SVG PARTIALS
+#     $IMAGES
 #*------------------------------------*/
-gulp.task 'images:svgminify', () ->
-  return gulp.src("./#{conf.path.dev.views}/**/*.svg.php", { base: './' })
-    .pipe regexRename(/\.php/, '')
+gulp.task 'images:minify', () ->
+  gulp.src("#{conf.path.dev.img}/raw/**/*.{jpg,jpeg,png,svg,ico}")
     .pipe imagemin {
+      optimizationLevel: 3,
+      progressive: true,
+      interlaced: true,
       svgoPlugins: [
-        { removeViewBox: false },
+        { removeDimensions: true },
         { cleanupIDs: false },
+        { removeViewBox: false },
       ],
+      use: [pngquant()]
     }
-    .pipe regexRename(/\.svg/, '.svg.php')
-    .pipe gulp.dest('./')
+    .pipe gulp.dest("#{conf.path.dev.img}")
 
+
+
+
+
+#*------------------------------------*\
+#     $IMAGES COPY
+#*------------------------------------*/
+gulp.task 'images:copy', ["images:minify"], () ->
+  gulp.src(["#{conf.path.dev.img}/**/*", "!#{conf.path.dev.img}/raw/**/*"])
+    .pipe gulp.dest(conf.path.dist.img)
