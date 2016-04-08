@@ -8,6 +8,10 @@ module.exports =
     path: path.join(__dirname, '../', conf.path.dev.js)
     filename: './[name].bundle.js'
 
+  # external:
+    # import 'google' from global 'google'
+    # 'google': 'google'
+
   module:
     loaders: [
       {
@@ -16,11 +20,6 @@ module.exports =
         loader: 'happypack/loader'
       }
     ]
-
-  # Exclude React from your bundle
-  externals:
-    'react': 'React'
-    'react-dom': 'ReactDOM'
 
   devtool: 'source-map'
 

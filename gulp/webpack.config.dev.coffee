@@ -16,6 +16,10 @@ module.exports =
     publicPath: '/assets/js/'
     filename: 'app.bundle.js'
 
+  # external:
+    # import 'google' from global 'google'
+    # 'google': 'google'
+
   module:
     loaders: [
       {
@@ -23,11 +27,6 @@ module.exports =
         exclude: /node_modules/
         loaders: ['react-hot', 'babel']
       }
-      # {
-      #   test: /\.jsx?$/
-      #   exclude: /node_modules/
-      #   loader: 'happypack/loader'
-      # }
     ]
 
   devtool: 'source-map'
@@ -37,10 +36,4 @@ module.exports =
     new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.DedupePlugin(),
     new webpack.NoErrorsPlugin()
-    # new HappyPack({
-    #   loaders: [{
-    #     path: path.resolve(__dirname, '../node_modules/babel-loader/index.js'),
-    #     query: '?presets[]=es2015,presets[]=react'
-    #   }]
-    # })
   ]
