@@ -36,3 +36,13 @@ gulp.task 'images:minify', () ->
 gulp.task 'images:copy', ["images:minify"], () ->
   gulp.src(["#{conf.path.dev.img}/**/*", "!#{conf.path.dev.img}/raw/**/*"])
     .pipe gulp.dest(conf.path.dist.img)
+
+
+
+
+
+#*------------------------------------*\
+#     $IMAGES WATCH
+#*------------------------------------*/
+gulp.task 'images:watch', ["images:copy"], () ->
+
