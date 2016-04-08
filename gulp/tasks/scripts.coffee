@@ -61,7 +61,7 @@ gulp.task 'scripts:vendors', (done) ->
 #*------------------------------------*/
 gulp.task 'scripts:lint',  () ->
   files = [
-    "#{path.dev.js}/**/!(*.bundle).js"
+    "#{path.dev.js}/**/*.js"
     "#{path.dev.js}/**/*.jsx"
   ]
 
