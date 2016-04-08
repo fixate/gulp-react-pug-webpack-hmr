@@ -12,5 +12,6 @@ dist
 node_modules
 npm-debug.log
 
-# Fabricator Symlinked Assets
-styleguide/src/assets/toolkit/assets
+# Minified Images
+src/assets/img/*
+!src/assets/img/raw
