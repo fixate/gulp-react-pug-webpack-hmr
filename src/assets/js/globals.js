@@ -1,1 +1,3 @@
-window.PATHNAME = '';
+export default {
+  PATHNAME: '',
+};
