@@ -18,7 +18,6 @@ gulp.task 'images:minify', () ->
       progressive: true,
       interlaced: true,
       svgoPlugins: [
-        { removeDimensions: true },
         { cleanupIDs: false },
         { removeViewBox: false },
       ],
