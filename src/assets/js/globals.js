@@ -1,4 +1,4 @@
-const PATHNAME = '';
+const PATHNAME = '.';
 
 export {
   PATHNAME: '',
