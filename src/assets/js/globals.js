@@ -1,5 +1,5 @@
-const PATHNAME = '.';
+const BASEPATH = '.';
 
 export {
-  PATHNAME: '',
+  BASEPATH,
 };
