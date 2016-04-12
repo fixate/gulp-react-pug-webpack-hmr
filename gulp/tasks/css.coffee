@@ -1,5 +1,6 @@
 gulp         = require 'gulp'
 autoprefixer = require 'gulp-autoprefixer'
+cssnano      = require 'gulp-cssnano'
 sass         = require 'gulp-sass'
 sourcemaps   = require 'gulp-sourcemaps'
 
@@ -18,6 +19,20 @@ gulp.task 'css', () ->
     .pipe sass().on('error', sass.logError)
     .pipe autoprefixer({browsers: ['last 2 versions']})
     .pipe sourcemaps.write()
+    .pipe gulp.dest(conf.path.dist.css)
+
+
+
+
+
+#*------------------------------------*\
+#     $CSS MINIFY
+#*------------------------------------*/
+gulp.task 'css:minify', () ->
+  gulp.src(["#{conf.path.dev.css}/**/*.{scss,sass}"])
+    .pipe sass().on('error', sass.logError)
+    .pipe autoprefixer({browsers: ['last 2 versions']})
+    .pipe cssnano()
     .pipe gulp.dest(conf.path.dist.css)
 
 
