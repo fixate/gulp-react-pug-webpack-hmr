@@ -18,7 +18,7 @@ gulp.task 'images:minify', () ->
       progressive: true,
       interlaced: true,
       svgoPlugins: [
-        { cleanupIDs: false },
+        { cleanupIDs: true },
         { removeViewBox: false },
       ],
       use: [pngquant()]
@@ -44,4 +44,3 @@ gulp.task 'images:copy', ["images:minify"], () ->
 #     $IMAGES WATCH
 #*------------------------------------*/
 gulp.task 'images:watch', ["images:copy"], () ->
-
