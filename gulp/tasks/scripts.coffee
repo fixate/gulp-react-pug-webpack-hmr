@@ -21,11 +21,10 @@ runWebPack = (config, done) ->
 #*------------------------------------*\
 #     $SCRIPTS
 #*------------------------------------*/
-gulp.task 'scripts', (done) ->
-  webpackConf = '../webpack.conf.dev'
+gulp.task 'scripts:minify', (done) ->
+  webpackConf = require '../../webpack.config.prod'
 
   runWebPack(webpackConf, done)
-
 
 
 

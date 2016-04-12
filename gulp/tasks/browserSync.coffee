@@ -4,7 +4,7 @@ webpackDevMiddleware = require 'webpack-dev-middleware'
 webpackHotMiddleware = require 'webpack-hot-middleware'
 
 conf = require '../gulpconfig'
-webpackConfig = require '../webpack.config.dev'
+webpackConfig = require '../../webpack.config.dev'
 bundler = webpack(webpackConfig)
 
 gulp.task 'browser-sync', () ->
