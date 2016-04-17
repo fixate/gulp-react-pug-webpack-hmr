@@ -1,7 +1,7 @@
-# Boilerplate For Projects With Gulp, React, Jade, Webpack, BrowserSync, and HMR
+# Boilerplate For Projects With Gulp, React, Pug, Webpack, BrowserSync, and HMR
 
 Quickly set up projects where you need React, and Webpack, and want to benefit
-from Gulp automation, BrowserSync reloading, and Jade templates.
+from Gulp automation, BrowserSync reloading, and Pug templates.
 
 Tasks are managed in `gulp/tasks`.
 
