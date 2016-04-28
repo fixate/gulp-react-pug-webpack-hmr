@@ -18,3 +18,7 @@ $ npm install
 ```shell
 $ gulp
 ```
+
+### License
+
+MIT: http://fixate.mit-license.org/
