@@ -13,7 +13,7 @@ Gulp builds assets to `dist/` which BrowserSync serves.
 $ npm install
 ```
 
-## Getting Working
+## Getting Down To Business
 
 ```shell
 $ gulp
