@@ -5,6 +5,7 @@
   "scripts": {
     "test": "testem",
     "debug": "devtool `which ./node_modules/.bin/babel-node` ./test/index.js",
+    "update": "./node_modules/.bin/updtr"
   },
   "devDependencies": {
     "babel-core": "^6.4.5",
