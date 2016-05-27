@@ -1,13 +1,17 @@
 {
   "launchers": {
     "Chrome": {
-      "command": "./node_modules/.bin/babel-tape-runner ./test/**/*.js"
+      "command": "./node_modules/.bin/babel-node ./test/index.js"
+    },
+    "PhantomJS": {
+      "command": "./node_modules/.bin/babel-node ./test/index.js"
     }
   },
   "framework": "tap",
   "src_files": [
-    "test/*.js"
+    "test/**/*.js",
+    "src/assets/js/**/*.js",
+    "src/assets/js/**/*.jsx"
   ],
-  "launch_in_dev": ["Chrome"]
+  "launch_in_dev": ["PhantomJS", "Chrome"]
 }
-
