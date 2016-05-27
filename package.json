@@ -4,7 +4,7 @@
   "name": "project-name",
   "scripts": {
     "test": "testem",
-    "debug": "devtool `which ./node_modules/.bin/babel-tape-runner` ./test/*.js"
+    "debug": "devtool `which ./node_modules/.bin/babel-node` ./test/index.js",
   },
   "devDependencies": {
     "babel-core": "^6.4.5",
