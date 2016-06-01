@@ -16,6 +16,6 @@ gulp.task 'build', () ->
       'images:copy',
       'scripts:minify',
       'css:minify',
-      'jade:minify',
+      'pug:minify',
     ]
   )

@@ -10,7 +10,7 @@ conf        = require '../gulpconfig'
 
 
 #*------------------------------------*\
-#     $JADE
+#     $PUG
 #*------------------------------------*/
 gulp.task 'pug', () ->
   gulp.src(["#{conf.path.dev.app}/index.pug"])
@@ -22,7 +22,7 @@ gulp.task 'pug', () ->
 
 
 #*------------------------------------*\
-#     $JADE MINIFY
+#     $PUG MINIFY
 #*------------------------------------*/
 gulp.task 'pug:minify', () ->
   gulp.src(["#{conf.path.dev.app}/index.pug"])
@@ -35,7 +35,7 @@ gulp.task 'pug:minify', () ->
 
 
 #*------------------------------------*\
-#     $JADE WATCH
+#     $PUG WATCH
 #*------------------------------------*/
 gulp.task 'pug:watch', ['pug'], () ->
   watching = true
