@@ -8,7 +8,7 @@ runSequence  = require 'run-sequence'
 #*------------------------------------*\
 #     $BUILD
 #*------------------------------------*/
-gulp.task 'build', () ->
+gulp.task 'build', (done) ->
   runSequence(
     'clean:build',
     [
@@ -17,5 +17,6 @@ gulp.task 'build', () ->
       'scripts:minify',
       'css:minify',
       'pug:minify',
-    ]
+    ],
+    done
   )
