@@ -14,7 +14,11 @@ conf        = require '../gulpconfig'
 #*------------------------------------*/
 gulp.task 'pug', () ->
   gulp.src(["#{conf.path.dev.app}/index.pug"])
-    .pipe pug({ pretty: true }).on('error', utils.handleError)
+    .pipe pug({
+      pretty: true
+      data:
+        myLocalVar: 'local variable value'
+    }).on('error', utils.handleError)
     .pipe gulp.dest(conf.path.dist.app)
 
 
@@ -26,7 +30,10 @@ gulp.task 'pug', () ->
 #*------------------------------------*/
 gulp.task 'pug:minify', () ->
   gulp.src(["#{conf.path.dev.app}/index.pug"])
-    .pipe pug().on('error', utils.handleError)
+    .pipe pug({
+      data:
+        myLocalVar: 'local variable value'
+    }).on('error', utils.handleError)
     .pipe minifyHTML({conditionals: true})
     .pipe gulp.dest(conf.path.dist.app)
 
