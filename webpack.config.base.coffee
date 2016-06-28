@@ -1,6 +1,6 @@
-path      = require 'path'
+path = require 'path'
 
-conf        = require './gulp/gulpconfig'
+conf = require './gulp/gulpconfig'
 
 module.exports =
   output:
