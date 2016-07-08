@@ -23,7 +23,7 @@ gulp.task 'images:minify', () ->
       ],
       use: [pngquant()]
     }
-    .pipe gulp.dest("#{conf.path.dev.img}")
+    .pipe gulp.dest(conf.path.dev.img)
 
 
 
@@ -43,4 +43,5 @@ gulp.task 'images:copy', ["images:minify"], () ->
 #*------------------------------------*\
 #     $IMAGES WATCH
 #*------------------------------------*/
-gulp.task 'images:watch', ["images:copy"], () ->
+gulp.task 'images:watch', ["images:copy"], (done) ->
+  done()
