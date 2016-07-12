@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import test from 'tape';
-import App from '../src/assets/js/components/App.jsx';
+import App from './App';
 
 test('<App /> contains hello world', assert => {
   const wrapper = shallow(<App />);
@@ -13,4 +13,3 @@ test('<App /> contains hello world', assert => {
 
   assert.end();
 });
-
