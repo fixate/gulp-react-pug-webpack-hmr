@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "name": "project-name",
   "scripts": {
-    "test": "testem",
-    "debug": "devtool `which ./node_modules/.bin/babel-node` ./test/index.js",
+    "test": "`which babel-tape-runner` ./src/assets/js/**/*.spec.js | faucet",
+    "debug": "browserify ./src/assets/js/**/*.spec.js -t babelify |  devtool",
     "update": "./node_modules/.bin/updtr"
   },
   "devDependencies": {

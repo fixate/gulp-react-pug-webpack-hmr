@@ -1,10 +1,10 @@
 {
   "launchers": {
     "Chrome": {
-      "command": "./node_modules/.bin/babel-node ./test/index.js"
+      "command": "babel-tape-runner ./src/assets/js/**/*.spec.js"
     },
     "PhantomJS": {
-      "command": "./node_modules/.bin/babel-node ./test/index.js"
+      "command": "babel-tape-runner ./src/assets/js/**/*.spec.js"
     }
   },
   "framework": "tap",
