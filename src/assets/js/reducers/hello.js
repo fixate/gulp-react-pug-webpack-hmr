@@ -1,3 +1,5 @@
+import assign from 'object.assign';
+
 import actionTypes from '../constants';
 
 const initialState = {
@@ -7,7 +9,7 @@ const initialState = {
 export default function helloReducer(state = initialState, action) {
   switch (action.type) {
     case actionTypes.HELLO.SET_VALUE:
-      return Object.assign({}, {
+      return assign({}, {
         value: action.value,
       });
 
