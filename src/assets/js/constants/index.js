@@ -1,5 +1,5 @@
 export default {
-  ACTION_CATEGORY: {
-    ACTION_NAME: 'ACTION_NAME',
+  HELLO: {
+    SET_VALUE: 'SET_VALUE',
   },
 };

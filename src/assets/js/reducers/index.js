@@ -1,5 +1,6 @@
-// import exmapleRedicer form 'example-reducer';
-//
-// export default {
-//   exampleStore: exampleRdeucer,
-// };
+import { combineReducers } from 'redux';
+import helloReducer from './hello';
+
+export default combineReducers({
+  helloStore: helloReducer,
+});
