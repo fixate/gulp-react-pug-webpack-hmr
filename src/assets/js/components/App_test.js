@@ -16,7 +16,6 @@ test('<App /> contains hello world', assert => {
   const spy = sinon.spy(helloActions.setValue);
 
   wrapper.find('input').simulate('change', { target: { value: 'World' }});
-  debugger;
 
   const actual = spy.called;
   const expected = true;
