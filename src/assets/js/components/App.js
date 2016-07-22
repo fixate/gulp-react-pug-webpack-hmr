@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import * as helloActions from '../actions/hello';
 
-const App = React.createClass({
+export const App = React.createClass({
   displayName: 'App',
 
   propTypes: {
