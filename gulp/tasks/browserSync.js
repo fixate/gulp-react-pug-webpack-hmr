@@ -24,7 +24,10 @@ gulp.task('browser-sync', () =>
 
         // bundler should be the same as above
         webpackHotMiddleware(bundler)
-      ]
+      ],
+      routes: {
+        '/assets/img': 'src/assets/img',
+      },
     },
     injectchanges: true,
     open: false,
