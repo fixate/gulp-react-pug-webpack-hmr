@@ -17,7 +17,8 @@ gulp.task('pug', () =>
     .pipe(pug({
       pretty: true,
       data: {
-        myLocalVar: 'local variable value'
+        analyticsGoogle: '12456789',
+        basePath: '.',
       }
     }).on('error', utils.handleError))
     .pipe(gulp.dest(conf.path.dist.app))
@@ -34,7 +35,8 @@ gulp.task('pug:minify', () =>
   gulp.src([`${conf.path.dev.app}/index.pug`])
     .pipe(pug({
       data: {
-        myLocalVar: 'local variable value'
+        analyticsGoogle: '',
+        basePath: '.',
       }
     }).on('error', utils.handleError))
     .pipe(minifyHTML({conditionals: true}))
