@@ -17,8 +17,8 @@ gulp.task('build', done =>
       'scripts:minify',
       'css:minify',
       'pug:minify',
+      'favicons:copy',
     ],
     done
   )
 );
-
