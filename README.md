@@ -19,6 +19,26 @@ $ npm install
 $ gulp
 ```
 
+## Tests
+
+Tests can be run for specific files when only those files are changed.
+
+Format for tests is as follows:
+
+```
+./App.js
+./App_test.js
+```
+
+Changes in App.js or App_test.js will run App_test.js. Changes in files that do
+not have tests will run entire suite.
+
+Running tests continuously:
+
+```shell
+$ gulp watch:tests
+```
+
 ### License
 
 MIT: http://fixate.mit-license.org/
