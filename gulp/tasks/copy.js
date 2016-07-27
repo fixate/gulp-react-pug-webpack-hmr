@@ -8,4 +8,10 @@ const conf = require('../gulpconfig');
 //*------------------------------------*\
 //     $COPY FONTS
 //*------------------------------------*/
-gulp.task('copy', ['fonts:copy'], done => done());
+const deps = [
+  'fonts:copy',
+  'images:copy',
+  'favicons:copy',
+];
+
+gulp.task('copy', deps, done => done());

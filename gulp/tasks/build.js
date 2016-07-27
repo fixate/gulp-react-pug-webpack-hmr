@@ -12,12 +12,10 @@ gulp.task('build', done =>
   runSequence(
     'clean:build',
     [
-      'fonts:copy',
-      'images:copy',
+      'copy',
       'scripts:minify',
       'css:minify',
       'pug:minify',
-      'favicons:copy',
     ],
     done
   )
