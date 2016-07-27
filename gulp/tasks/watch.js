@@ -6,6 +6,7 @@ const fs = require('fs');
 const shell = require('gulp-shell');
 
 const conf = require('../gulpconfig');
+const devPath = conf.path.dev;
 
 
 
@@ -17,15 +18,21 @@ const conf = require('../gulpconfig');
 const deps = [
   'css',
   'pug',
-  'copy',
+  'images:copy',
+  'fonts:copy',
   'browser-sync',
 ];
 
 gulp.task('watch', deps, function() {
-  gulp.watch(`${conf.path.dev.css}/**/*.scss`, ['css:watch']);
-  gulp.watch([`${conf.path.dev.js}/**/!(*.bundle).js`, `${conf.path.dev.js}/**/*.jsx`], ['scripts:lint']);
-  gulp.watch(`${conf.path.dev.app}/**/*.pug`, ['pug:watch']);
-  return gulp.watch(`${conf.path.dev.img}/raw/**/*`, ['images:watch']);
+  gulp.watch(`${devPath.css}/**/*.scss`, ['css:watch']);
+  gulp.watch([`${devPath.js}/**/!(*.bundle).js`, `${devPath.js}/**/*.jsx`], ['scripts:lint']);
+  gulp.watch(`${devPath.app}/**/*.pug`, ['pug:watch']);
+  gulp.watch(`${devPath.app}/partials/svg/raw/inline-icons/**/*.svg`, ['images:watch:inlinesvgicons']);
+  gulp.watch([
+    `${devPath.app}/partials/svg/raw/**/*.svg`,
+    `!${devPath.app}/partials/svg/raw/inline-icons/**/*.svg`,
+  ], ['images:watch:svgpartials']);
+  return gulp.watch(`${devPath.img}/raw/**/*`, ['images:watch']);
 });
 
 
