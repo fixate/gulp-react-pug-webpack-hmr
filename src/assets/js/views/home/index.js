@@ -1,10 +1,12 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
-import * as helloActions from '../actions/hello';
+import routes from '../routes';
+import * as helloActions from '../../actions/hello';
 
-export const App = React.createClass({
-  displayName: 'App',
+export const Home = React.createClass({
+  displayName: 'Home',
 
   propTypes: {
     dispatch: PropTypes.func.isRequired,
@@ -22,6 +24,10 @@ export const App = React.createClass({
 
     return (
       <div>
+        <div>
+          <Link to={routes.about}>about</Link>
+        </div>
+
         <h1>Hello {value}</h1>
         <input type="text" value={value} onChange={this.handleChange} />
       </div>
@@ -33,4 +39,4 @@ function mapStateToProps({ helloStore }) {
   return { helloStore };
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(Home);
