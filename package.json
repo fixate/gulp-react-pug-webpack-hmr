@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "name": "project-name",
   "scripts": {
-    "test": "`which babel-tape-runner` ./src/assets/js/**/*_test.js | faucet",
     "debug": "browserify ./src/assets/js/**/*_test.js -t babelify |  devtool",
+    "start": "gulp",
+    "test": "`which babel-tape-runner` ./src/assets/js/**/*_test.js | faucet",
     "update": "./node_modules/.bin/updtr"
   },
   "devDependencies": {
