@@ -1,9 +1,11 @@
-import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import test from 'tape';
 import { Home } from './index';
 import sinon from 'sinon';
+
+import '../../test/utils/setup-dom';
+import React from 'react';
 
 const mockStore = configureStore()({});
 const helloActions = {
