@@ -12,9 +12,9 @@ const devPath = conf.path.dev;
 
 
 
-//*------------------------------------*\
-//     $WATCH
-//*------------------------------------*/
+/*------------------------------------*\
+     $WATCH
+\*------------------------------------*/
 const deps = [
   'css',
   'pug',
@@ -39,11 +39,11 @@ gulp.task('watch', deps, function() {
 
 
 
-//*------------------------------------*\
-//     $WATCH TESTS
-//*------------------------------------*/
+/*------------------------------------*\
+     $WATCH TESTS
+\*------------------------------------*/
 gulp.task('watch:tests', function() {
-  gulp.watch([`${conf.path.dev.js}/**/*.js`])
+  gulp.watch([`${devPath.js}/**/*.js`])
     .on('change', (file) => {
       const basename = path.basename(file.path);
       const isTestFile = /_test/.test(basename);
@@ -61,7 +61,7 @@ gulp.task('watch:tests', function() {
         } catch (e) {
           log(`No matching test file for ${basename}.`, 'red');
           log('Running all tests');
-          testFile = 'src/assets/js/**/*_test.js';
+          testFile = `${devPath.app}/**/*_test.js`;
         }
       }
 
@@ -73,7 +73,7 @@ gulp.task('watch:tests', function() {
   }
 
   function runTest(glob) {
-    return gulp.src(glob, { read: false })
+    return gulp.src('./', { read: false })
       .pipe(shell(`$(which babel-tape-runner) ${glob} | faucet`))
       .on('error', () => {});
   }
