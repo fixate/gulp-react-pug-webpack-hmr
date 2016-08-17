@@ -21,6 +21,8 @@ module.exports = {
 
   externals: webpackBase.externals,
 
+  resolve: webpackBase.resolve,
+
   devtool: 'source-map',
 
   module: {
