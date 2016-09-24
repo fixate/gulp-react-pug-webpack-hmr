@@ -6,16 +6,16 @@ const rename      = require('gulp-rename');
 const regexRename = require('gulp-regex-rename');
 const svgstore    = require('gulp-svgstore');
 
-const conf = require('../gulpconfig');
+const conf    = require('../gulpconfig');
 const devPath = conf.path.dev;
 
 
 
 
 
-//*------------------------------------*\
-//     $IMAGES
-//*------------------------------------*/
+/*------------------------------------*\
+     MINIFIY IMAGES
+\*------------------------------------*/
 gulp.task('images:minify', () =>
   gulp.src(`${devPath}/raw/**/*.{jpg,jpeg,png,svg,ico}`)
     .pipe(imagemin({
@@ -35,11 +35,11 @@ gulp.task('images:minify', () =>
 
 
 
-//*------------------------------------*\
-//     $INLINE SVG ICONS
-//*------------------------------------*/
+/*------------------------------------*\
+     MINIFY INLINE SVG ICONS
+\*------------------------------------*/
 gulp.task('images:minify:inlinesvgicons', () =>
-  gulp.src(`${devPath}/partials/svg/raw/inline-icons/*.svg`)
+  gulp.src(`${devPath.app}/partials/svg/raw/inline-icons/*.svg`)
     .pipe(rename({ prefix: 'icon-' }))
     .pipe(imagemin({
       svgoPlugins: [
@@ -48,16 +48,16 @@ gulp.task('images:minify:inlinesvgicons', () =>
     }))
     .pipe(svgstore({ inlineSvg: true }))
     .pipe(regexRename(/\.svg/, '.svg.pug'))
-    .pipe(gulp.dest(`${devPath.views}/partials/svg`))
+    .pipe(gulp.dest(`${devPath.app}/partials/svg`))
 );
 
 
 
 
 
-//*------------------------------------*\
-//     $OPTIMISE SVG PARTAILS
-//*------------------------------------*/
+/*------------------------------------*\
+     MINIFY SVG PARTIALS
+\*------------------------------------*/
 gulp.task('images:minify:svgpartials', () =>
   gulp.src([
     `./${devPath.app}/partials/svg/raw/**/*.svg`,
@@ -79,10 +79,9 @@ gulp.task('images:minify:svgpartials', () =>
 
 
 
-
-//*------------------------------------*\
-//     $IMAGES COPY
-//*------------------------------------*/
+/*------------------------------------*\
+     COPY IMAGES
+\*------------------------------------*/
 const copyDepsList =[
   'images:minify',
   'images:minify:svgpartials',
@@ -98,9 +97,21 @@ gulp.task('images:copy', copyDepsList, () =>
 
 
 
-//*------------------------------------*\
-//     $IMAGES WATCH
-//*------------------------------------*/
-gulp.task('images:watch', ["images:copy"], done => done());
-gulp.task('images:watch:svgpartials', ["images:minify:svgpartials"], done => done());
-gulp.task('images:watch:inlinesvgicons', ["images:minify:inlinesvgicons"], done => done());
+/*------------------------------------*\
+     IMAGE WATCHERS
+\*------------------------------------*/
+gulp.task(
+  'images:watch',
+  ['images:copy'],
+  done => done()
+);
+gulp.task(
+  'images:watch:svgpartials',
+  ['images:minify:svgpartials'],
+  done => done()
+);
+gulp.task(
+  'images:watch:inlinesvgicons',
+  ['images:minify:inlinesvgicons'],
+  done => done()
+);
