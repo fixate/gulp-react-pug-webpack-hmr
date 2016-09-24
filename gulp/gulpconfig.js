@@ -21,7 +21,21 @@ const config = {
       img:    `${distAssets}/img`,
       fnt:    `${distAssets}/fnt`
     }
-  }
+  },
+
+  pug: {
+    dev: {
+      data: {
+        basePath: '',
+      },
+    },
+
+    dist: {
+      data: {
+        basePath: '',
+      },
+    },
+  },
 };
 
 module.exports = config;
