@@ -1,0 +1,8 @@
+mixin icon(iconId)
+	- className = attributes.className || 'icon'
+	- classNameInner = attributes.classNameInner || 'icon__inner'
+
+	i(class=className)
+		i(class=classNameInner)
+			svg
+				use(xlinkhref="#icon-" + iconId)
