@@ -1,6 +1,5 @@
 const gulp       = require('gulp');
 const pug        = require('gulp-pug');
-const minifyHTML = require('gulp-minify-html');
 const utils      = require('./utils');
 
 const conf = require('../gulpconfig');
@@ -8,50 +7,45 @@ const conf = require('../gulpconfig');
 
 
 
-
-//*------------------------------------*\
-//     $PUG
-//*------------------------------------*/
-gulp.task('pug', () =>
-  gulp.src([`${conf.path.dev.app}/index.pug`])
+function compilePug(env = 'dev') {
+  return gulp.src([`${conf.path.dev.app}/**/!(_)*.pug`])
     .pipe(pug({
       pretty: true,
-      data: {
-        analyticsGoogle: '12456789',
-        basePath: '.',
-      }
+      data: conf.pug[env].data,
     }).on('error', utils.handleError))
-    .pipe(gulp.dest(conf.path.dist.app))
+    .pipe(gulp.dest(conf.path.dist.app));
+}
+
+
+
+
+
+/*------------------------------------*\
+     PUG
+\*------------------------------------*/
+gulp.task('pug', () =>
+  compilePug()
 );
 
 
 
 
 
-//*------------------------------------*\
-//     $PUG MINIFY
-//*------------------------------------*/
-gulp.task('pug:minify', () =>
-  gulp.src([`${conf.path.dev.app}/index.pug`])
-    .pipe(pug({
-      data: {
-        analyticsGoogle: '',
-        basePath: '.',
-      }
-    }).on('error', utils.handleError))
-    .pipe(minifyHTML({conditionals: true}))
-    .pipe(gulp.dest(conf.path.dist.app))
+/*------------------------------------*\
+     PUG DIST
+\*------------------------------------*/
+gulp.task('pug:dist', () =>
+  compilePug('dist')
 );
 
 
 
 
 
-//*------------------------------------*\
-//     $PUG WATCH
-//*------------------------------------*/
+/*------------------------------------*\
+     PUG WATCH
+\*------------------------------------*/
 gulp.task('pug:watch', ['pug'], function() {
   let watching = true;
   return global.browserSync.reload();
 });
-
