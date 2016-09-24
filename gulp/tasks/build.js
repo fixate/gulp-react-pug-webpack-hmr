@@ -5,9 +5,9 @@ const runSequence = require('run-sequence');
 
 
 
-//*------------------------------------*\
-//     $BUILD
-//*------------------------------------*/
+/*------------------------------------*\
+     BUILD
+\*------------------------------------*/
 gulp.task('build', done =>
   runSequence(
     'clean:build',
@@ -15,8 +15,8 @@ gulp.task('build', done =>
       'copy',
       'scripts:minify',
       'css:minify',
-      'pug:minify',
     ],
+    'useref',
     done
   )
 );
