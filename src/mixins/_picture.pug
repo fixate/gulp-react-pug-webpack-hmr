@@ -1,0 +1,12 @@
+mixin picture(desk, lap, palm)
+	picture(class!=attributes.class, data-bg-target!=attributes.bgTarget)
+		if attributes.desk
+			source(srcset=attributes.desk, media='(min-width:880px)')
+
+		if attributes.lap
+			source(srcset=attributes.lap, media='(min-width:481px)')
+
+		if attributes.palm
+			source(srcset=attributes.palm, media='(max-width:480px)')
+
+		img(srcset=attributes.desk, alt!=attributes.alt)
