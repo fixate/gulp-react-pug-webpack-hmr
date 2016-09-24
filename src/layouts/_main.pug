@@ -1,0 +1,17 @@
+include ../mixins/_all.pug
+
+doctype html
+html
+	include ../partials/_head.pug
+
+	body
+		//- div(style="position: absolute; visibility: hidden")
+		//-   include ../partials/svg/inline-icons.svg.pug
+
+		block content
+
+		// build:js /assets/js/app.bundle.min.js
+		script(src=basePath+"/assets/js/app.bundle.js")
+		// endbuild
+
+		block scripts-footer

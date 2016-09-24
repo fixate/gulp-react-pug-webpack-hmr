@@ -1,8 +1,4 @@
-doctype html
-html
-	include ./partials/head.pug
+extends ./layouts/_main.pug
 
-	body
-		.js-mount-point
-
-		script(src=basePath+"/assets/js/app.bundle.js")
+block content
+	.js-mount-point
