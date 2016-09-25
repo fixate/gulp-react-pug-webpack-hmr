@@ -24,6 +24,12 @@ const config = {
   },
 
   pug: {
+    common: {
+      data: {
+
+      },
+    },
+
     dev: {
       data: {
         basePath: '',

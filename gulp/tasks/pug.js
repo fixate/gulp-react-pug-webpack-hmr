@@ -11,7 +11,7 @@ function compilePug(env = 'dev') {
   return gulp.src([`${conf.path.dev.app}/**/!(_)*.pug`])
     .pipe(pug({
       pretty: true,
-      data: conf.pug[env].data,
+      data: Object.assign({}, conf.pug.common.data, conf.pug[env].data),
     }).on('error', utils.handleError))
     .pipe(gulp.dest(conf.path.dist.app));
 }
