@@ -16,7 +16,7 @@ gulp.task('build', done =>
       'scripts:minify',
       'css:minify',
     ],
-    ['useref'],
+    'useref',
     done
   )
 );
