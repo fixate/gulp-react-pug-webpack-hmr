@@ -49,7 +49,7 @@ gulp.task('favicons:generate', () =>
 //*------------------------------------*\
 //     $FAVICONS COPY
 //*------------------------------------*/
-gulp.task('favicons:copy', ['favicons:generate'], (done) => {
+gulp.task('favicons:copy', ['favicons:generate'], () => {
   gulp.src(`${conf.path.dev.app}/favicon.ico`)
     .pipe(gulp.dest(conf.path.dist.app));
 });
