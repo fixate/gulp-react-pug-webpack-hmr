@@ -4,6 +4,8 @@
   "name": "project-name",
   "scripts": {
     "debug": "browserify ./src/assets/js/**/*_test.js -t babelify |  devtool",
+    "dev": "gulp",
+    "build": "gulp build",
     "start": "gulp",
     "test": "`which babel-tape-runner` ./src/assets/js/**/*_test.js | faucet",
     "update": "./node_modules/.bin/updtr"
