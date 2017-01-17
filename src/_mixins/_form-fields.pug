@@ -1,0 +1,112 @@
+mixin field-msg(msg)
+	.field__msg(class=msg.type === 'error' ? 'field__msg--error': '')
+		!= msg.message
+
+mixin field()
+	div(class=attributes.fieldClassName)
+		if attributes.labelText
+			label(class=attributes.labelClassName,for=attributes.labelFor)
+				= attributes.labelText
+
+		block
+
+		if attributes.msg
+			+field-msg(attributes.msg)
+
+mixin input-field()
+	+field(
+		fieldClassName=attributes.fieldClassName,
+		labelClassName=attributes.labelClassName,
+		labelFor=attributes.id || attributes.name,
+		labelText=attributes.labelText,
+		name=attributes.name,
+		msg=attributes.msg,
+	)
+		block field-content
+			input(
+				class=attributes.className,
+				disabled=attributes.disabled,
+				readonly=attributes.readonly,
+				name=attributes.name,
+				id=attributes.id || attributes.name,
+				type=attributes.type || 'text',
+				value=attributes.value,
+				placeholder=attributes.placeholder
+			)
+
+mixin textarea-field()
+	+field(
+		fieldClassName=attributes.fieldClassName,
+		labelClassName=attributes.labelClassName,
+		labelFor=attributes.id || attributes.name,
+		labelText=attributes.labelText,
+		name=attributes.name,
+		msg=attributes.msg,
+	)
+		block field-content
+			textarea(
+				class=attributes.className,
+				disabled=attributes.disabled,
+				readonly=attributes.readonly,
+				name=attributes.name,
+				id=attributes.name,
+				placeholder=attributes.placeholder,
+				rows=attributes.rows
+			)
+				= attributes.value
+
+mixin select-field()
+	+field(
+		fieldClassName=attributes.fieldClassName,
+		labelClassName=attributes.labelClassName,
+		labelFor=attributes.id || attributes.name,
+		labelText=attributes.labelText,
+		name=attributes.name,
+		msg=attributes.msg,
+	)
+		block field-content
+			select(
+				class=attributes.className,
+				name=attributes.name,
+				id=attributes.name,
+				disabled=attributes.disabled
+			)
+				for option in attributes.options
+					option(
+						value=option.value,
+						selected=option.selected,
+						disabled=option.disabled
+					)
+						= option.text || option.value
+
+mixin radio-check(input, type)
+	- var randId = 'type-' + Math.ceil(Math.random() * 1000 + 9000)
+
+	label(for=randId,class=input.labelClassName)
+		input(
+			class=input.className,
+			type=type || 'radio',
+			name=input.name,
+			id=randId,
+			disabled=input.disabled,
+			readonly=input.readonly,
+			checked=input.checked,
+			group=input.group
+		)
+		= ' '
+		= input.text
+
+mixin radios-field()
+	for radio in attributes.radios
+		div
+			+radio-check(radio)
+
+mixin checkboxes-field()
+	for checkbox in attributes.checkboxes
+		div
+			+radio-check(checkbox, 'checkbox')
+
+mixin field-help()
+	div.help-text
+		block
+
