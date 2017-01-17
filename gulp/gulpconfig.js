@@ -25,6 +25,10 @@ const config = {
   },
 
   pug: pugData,
+
+  sass: {
+    includePaths: ['node_modules'],
+  },
 };
 
 module.exports = config;
