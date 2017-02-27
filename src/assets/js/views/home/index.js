@@ -9,14 +9,14 @@ export const Home = React.createClass({
   displayName: 'Home',
 
   propTypes: {
-    dispatch: PropTypes.func.isRequired,
+    setValue: PropTypes.func.isRequired,
     helloStore: PropTypes.object.isRequired,
   },
 
   handleChange(e) {
-    const { dispatch } = this.props;
+    const { setValue } = this.props;
 
-    dispatch(helloActions.setValue(e.target.value));
+    setValue(e.target.value);
   },
 
   render() {
@@ -39,4 +39,4 @@ function mapStateToProps({ helloStore }) {
   return { helloStore };
 }
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps, helloActions)(Home);
