@@ -50,6 +50,7 @@
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.6",
     "imagemin-pngquant": "^5.0.0",
+    "jsdom": "^9.11.0",
     "jsx-loader": "^0.13.2",
     "moment": "^2.13.0",
     "npm-check-updates": "^2.6.5",
