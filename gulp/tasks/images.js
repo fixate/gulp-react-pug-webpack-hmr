@@ -19,7 +19,7 @@ gulp.task('images:minify', () =>
   gulp.src([
     `./${devPath.img}/raw/**/*.{jpg,jpeg,png,svg,ico}`,
     `!${devPath.img}/raw/svg/inline-icons/**/*.svg`,
-    `!${devPath.img}/raw/svg//partials/**/*.svg`,
+    `!${devPath.img}/raw/svg/partials/**/*.svg`,
   ])
     .pipe(imagemin({
       optimizationLevel: 3,
