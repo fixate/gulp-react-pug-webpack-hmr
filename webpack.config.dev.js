@@ -23,7 +23,7 @@ module.exports = {
 
   resolve: webpackBase.resolve,
 
-  devtool: 'source-map',
+  devtool: 'eval',
 
   module: {
     loaders: [
