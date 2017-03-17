@@ -47,7 +47,10 @@ gulp.task('images:minify:inlinesvgicons', () =>
       ],
     }))
     .pipe(svgstore({ inlineSvg: true }))
-    .pipe(regexRename(/\.svg/, '.svg.pug'))
+    .pipe(rename({
+      extname: '.svg.pug',
+      prefix: '_',
+    }))
     .pipe(gulp.dest(`${devPath.app}/partials/svg`))
 );
 
