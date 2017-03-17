@@ -3,7 +3,6 @@ const imagemin    = require('gulp-imagemin');
 const pngquant    = require('imagemin-pngquant');
 const replace     = require('gulp-replace');
 const rename      = require('gulp-rename');
-const regexRename = require('gulp-regex-rename');
 const svgstore    = require('gulp-svgstore');
 
 const conf    = require('../gulpconfig');
@@ -17,7 +16,11 @@ const devPath = conf.path.dev;
      MINIFIY IMAGES
 \*------------------------------------*/
 gulp.task('images:minify', () =>
-  gulp.src(`${devPath}/raw/**/*.{jpg,jpeg,png,svg,ico}`)
+  gulp.src([
+    `./${devPath.img}/raw/**/*.{jpg,jpeg,png,svg,ico}`,
+    `!${devPath.img}/raw/svg/inline-icons/**/*.svg`,
+    `!${devPath.img}/raw/svg//partials/**/*.svg`,
+  ])
     .pipe(imagemin({
       optimizationLevel: 3,
       progressive: true,
@@ -39,7 +42,7 @@ gulp.task('images:minify', () =>
      MINIFY INLINE SVG ICONS
 \*------------------------------------*/
 gulp.task('images:minify:inlinesvgicons', () =>
-  gulp.src(`${devPath.app}/partials/svg/raw/inline-icons/*.svg`)
+  gulp.src(`${devPath.img}/raw/svg/inline-icons/*.svg`)
     .pipe(rename({ prefix: 'icon-' }))
     .pipe(imagemin({
       svgoPlugins: [
@@ -51,7 +54,7 @@ gulp.task('images:minify:inlinesvgicons', () =>
       extname: '.svg.pug',
       prefix: '_',
     }))
-    .pipe(gulp.dest(`${devPath.app}/partials/svg`))
+  .pipe(gulp.dest(`${devPath.views}/_partials/svg`))
 );
 
 
@@ -63,8 +66,7 @@ gulp.task('images:minify:inlinesvgicons', () =>
 \*------------------------------------*/
 gulp.task('images:minify:svgpartials', () =>
   gulp.src([
-    `./${devPath.app}/partials/svg/raw/**/*.svg`,
-    `!${devPath.app}/partials/svg/raw/inline-icons/**/*.svg`
+    `./${devPath.img}/raw/svg/partials/**/*.svg`,
   ])
     .pipe(replace('<g id=', '<g class='))
     .pipe(imagemin({
@@ -74,8 +76,11 @@ gulp.task('images:minify:svgpartials', () =>
         { removeUselessStrokeAndFill: false },
       ],
     }))
-    .pipe(regexRename(/\.svg/, '.svg.pug'))
-    .pipe(gulp.dest(`${devPath.app}/partials/svg`))
+    .pipe(rename({
+      extname: '.svg.pug',
+      prefix: '_',
+    }))
+    .pipe(gulp.dest(`${devPath.views}/_partials/svg`))
 );
 
 
