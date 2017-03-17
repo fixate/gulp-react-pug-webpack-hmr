@@ -12,7 +12,8 @@ const config = {
       css:    `${devAssets}/css`,
       js:     `${devAssets}/js`,
       img:    `${devAssets}/img`,
-      fnt:    `${devAssets}/fnt`
+      fnt:    `${devAssets}/fnt`,
+      views:  `${devPath}/views`,
     },
     dist: {
       app: distPath,
@@ -20,7 +21,7 @@ const config = {
       css:    `${distAssets}/css`,
       js:     `${distAssets}/js`,
       img:    `${distAssets}/img`,
-      fnt:    `${distAssets}/fnt`
+      fnt:    `${distAssets}/fnt`,
     }
   },
 
