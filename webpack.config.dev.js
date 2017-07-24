@@ -1,7 +1,7 @@
-const path      = require('path');
-const webpack   = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
-const conf        = require('./gulp/gulpconfig');
+const conf = require('./gulp/gulpconfig');
 const webpackBase = require('./webpack.config.base');
 
 module.exports = {
@@ -25,18 +25,26 @@ module.exports = {
 
   devtool: 'eval',
 
+  stats: {
+    chunks: false,
+    modules: false,
+  },
+
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ['react-hot', 'babel'],
+        use: ['react-hot-loader', 'babel-loader'],
       },
     ],
   },
 
-  plugins: [].concat.apply([
+  plugins: [].concat.apply(
+    [
       new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoErrorsPlugin(),
-    ], webpackBase.plugins),
+      new webpack.NoEmitOnErrorsPlugin(),
+    ],
+    webpackBase.plugins
+  ),
 };

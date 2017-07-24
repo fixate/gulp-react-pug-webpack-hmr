@@ -1,5 +1,5 @@
-const gulp    = require('gulp');
-const eslint  = require('gulp-eslint');
+const gulp = require('gulp');
+const eslint = require('gulp-eslint');
 const webpack = require('webpack');
 
 const path = require('../gulpconfig').path;
@@ -9,16 +9,14 @@ function runWebPack(config, done) {
     if (err) {
       console.log('Error', err);
     } else {
-      console.log(stats.toString({ chunks: false }));
+      console.log(
+        stats.toString({chunks: false, modules: false, colors: true})
+      );
     }
 
     return done();
-  })
+  });
 }
-
-
-
-
 
 /*------------------------------------*\
      SCRIPTS
@@ -29,43 +27,27 @@ gulp.task('scripts:minify', function(done) {
   return runWebPack(webpackConf, done);
 });
 
-
-
-
-
 /*------------------------------------*\
      SCRIPTS WATCH
 \*------------------------------------*/
-gulp.task('scripts:watch', ['scripts'],  () => global.browserSync.reload());
-
-
-
-
+gulp.task('scripts:watch', ['scripts'], () => global.browserSync.reload());
 
 /*------------------------------------*\
      SCRIPTS VENDORS
 \*------------------------------------*/
 gulp.task('scripts:vendors', function(done) {});
-  // files = [
-  //   "#{path.dev.js}/vendor.js"
-  // ]
+// files = [
+//   "#{path.dev.js}/vendor.js"
+// ]
 
-  // runWebPack(entries, {}, done)
-  //
-
-
-
-
+// runWebPack(entries, {}, done)
+//
 
 /*------------------------------------*\
      SCRIPTS LINTING
 \*------------------------------------*/
 gulp.task('scripts:lint', function() {
-  let files = [
-    `${path.dev.js}/**/*.js`,
-  ];
+  let files = [`${path.dev.js}/**/*.js`];
 
-  return gulp.src(files)
-    .pipe(eslint())
-    .pipe(eslint.format());
+  return gulp.src(files).pipe(eslint()).pipe(eslint.format());
 });

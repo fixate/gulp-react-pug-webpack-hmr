@@ -10,7 +10,7 @@ module.exports = {
   },
 
   externals: {
-    'google': 'google',
+    google: 'google',
   },
 
   resolve: {

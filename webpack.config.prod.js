@@ -1,7 +1,7 @@
-const path      = require('path');
-const webpack   = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
-const conf      = require('./gulp/gulpconfig');
+const conf = require('./gulp/gulpconfig');
 const webpackBase = require('./webpack.config.base');
 
 module.exports = {
@@ -16,25 +16,26 @@ module.exports = {
   resolve: webpackBase.resolve,
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ['babel'],
-      }
+        use: ['babel-loader'],
+      },
     ],
   },
 
-  plugins: [].concat.apply([
-      new webpack.optimize.DedupePlugin(),
-      new webpack.optimize.OccurenceOrderPlugin(),
+  plugins: [].concat.apply(
+    [
       new webpack.optimize.UglifyJsPlugin({
         sourceMap: false,
       }),
       new webpack.DefinePlugin({
         'process.env': {
-          'NODE_ENV': JSON.stringify('production')
-        }
+          NODE_ENV: JSON.stringify('production'),
+        },
       }),
-    ], webpackBase.plugins),
+    ],
+    webpackBase.plugins
+  ),
 };

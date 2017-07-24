@@ -1,11 +1,11 @@
-const gulp                 = require('gulp');
-const webpack              = require('webpack');
+const gulp = require('gulp');
+const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 
-const conf          = require('../gulpconfig');
+const conf = require('../gulpconfig');
 const webpackConfig = require('../../webpack.config.dev');
-const bundler       = webpack(webpackConfig);
+const bundler = webpack(webpackConfig);
 const historyFallback = require('connect-history-api-fallback');
 
 gulp.task('browser-sync', () =>
@@ -19,8 +19,9 @@ gulp.task('browser-sync', () =>
           publicPath: webpackConfig.output.publicPath,
           stats: {
             colors: true,
-            chunks: false
-          }
+            modules: false,
+            chunks: false,
+          },
         }),
 
         // bundler should be the same as above
