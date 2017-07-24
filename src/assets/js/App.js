@@ -1,7 +1,7 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { IndexRoute, Router, Route, browserHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
+import {Provider} from 'react-redux';
+import {IndexRoute, Router, Route, browserHistory} from 'react-router';
+import {syncHistoryWithStore} from 'react-router-redux';
 
 import createStore from './store';
 import reducers from './reducers';
@@ -13,7 +13,7 @@ import About from './views/about';
 const store = createStore(reducers);
 const history = syncHistoryWithStore(browserHistory, store);
 
-const App = () => (
+const App = () =>
   <Provider store={store}>
     <Router history={history}>
       <Route path={routes.home} component={Layout}>
@@ -21,11 +21,10 @@ const App = () => (
         <Router path={routes.about} component={About} />
       </Route>
     </Router>
-  </Provider>
-);
+  </Provider>;
 
 App.displayName = 'App';
 
-App.propTypes = { };
+App.propTypes = {};
 
 export default App;
