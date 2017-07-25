@@ -1,26 +1,26 @@
-import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 import routes from '../routes';
 import * as helloActions from '../../actions/hello';
 
-export const Home = React.createClass({
-  displayName: 'Home',
+export class Home extends Component {
+  constructor(props) {
+    super(props);
 
-  propTypes: {
-    setValue: PropTypes.func.isRequired,
-    helloStore: PropTypes.object.isRequired,
-  },
+    this.handleChange = this.handleChange.bind(this);
+  }
 
   handleChange(e) {
-    const { setValue } = this.props;
+    const {setValue} = this.props;
 
     setValue(e.target.value);
-  },
+  }
 
   render() {
-    const { value } = this.props.helloStore;
+    const {value} = this.props.helloStore;
 
     return (
       <div>
@@ -28,15 +28,22 @@ export const Home = React.createClass({
           <Link to={routes.about}>about</Link>
         </div>
 
-        <h1>Hello {value}</h1>
+        <h1>
+          Hello {value}
+        </h1>
         <input type="text" value={value} onChange={this.handleChange} />
       </div>
     );
-  },
-});
+  }
+}
 
-function mapStateToProps({ helloStore }) {
-  return { helloStore };
+Home.propTypes = {
+  setValue: PropTypes.func.isRequired,
+  helloStore: PropTypes.object.isRequired,
+};
+
+function mapStateToProps({helloStore}) {
+  return {helloStore};
 }
 
 export default connect(mapStateToProps, helloActions)(Home);
