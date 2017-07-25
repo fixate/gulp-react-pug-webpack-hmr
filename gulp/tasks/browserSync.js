@@ -11,7 +11,7 @@ const historyFallback = require('connect-history-api-fallback');
 gulp.task('browser-sync', () =>
   global.browserSync.init({
     server: {
-      baseDir: 'dist',
+      baseDir: 'dist/views',
       middleware: [
         webpackDevMiddleware(bundler, {
           // IMPORTANT: dev middleware can't access config, so we should
