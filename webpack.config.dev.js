@@ -9,7 +9,7 @@ module.exports = {
     app: [
       'webpack/hot/dev-server',
       'webpack-hot-middleware/client',
-      './src/assets/js/index.js',
+      path.join(__dirname, conf.path.dev.js, 'index.js'),
     ],
   },
 
