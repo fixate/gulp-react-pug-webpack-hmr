@@ -33,9 +33,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
-        use: ['react-hot-loader', 'babel-loader'],
+        use: ['react-hot-loader', 'babel-loader?cacheDirectory'],
       },
     ],
   },
