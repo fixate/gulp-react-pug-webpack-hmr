@@ -1,6 +1,10 @@
 {
-  "extends": ["prettier"],
-  "plugins": ["prettier"],
+  "extends": ["plugin:react/recommended", "eslint:recommended", "prettier"],
+  "plugins": ["prettier", "react"],
+  "env": {
+    "browser": true,
+    "node": true
+  },
   "rules": {
     "prettier/prettier": [
       "error",
@@ -11,12 +15,22 @@
         "jsxBracketSameLine": true,
         "parser": "flow"
       }
+    ],
+    "no-floating-decimal": 0,
+    "no-use-before-define": 0,
+    "no-nested-ternary": 0,
+    "no-param-reassign": [
+      2,
+      {
+        "props": false
+      }
     ]
   },
   "parserOptions": {
     "ecmaVersion": 7,
     "sourceType": "module",
     "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
       "jsx": true
     }
   }
