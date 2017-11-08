@@ -9,26 +9,26 @@ const config = {
     dev: {
       app: devPath,
       assets: `${devAssets}`,
-      css:    `${devAssets}/css`,
-      js:     `${devAssets}/js`,
-      img:    `${devAssets}/img`,
-      fnt:    `${devAssets}/fnt`,
-      views:  `${devPath}/views`,
+      css: `${devAssets}/css`,
+      js: `${devAssets}/js`,
+      img: `${devAssets}/img`,
+      fnt: `${devAssets}/fnt`,
+      views: `${devPath}/views`,
     },
     dist: {
       app: distPath,
       assets: `${distAssets}`,
-      css:    `${distAssets}/css`,
-      js:     `${distAssets}/js`,
-      img:    `${distAssets}/img`,
-      fnt:    `${distAssets}/fnt`,
-    }
+      css: `${distAssets}/css`,
+      js: `${distAssets}/js`,
+      img: `${distAssets}/img`,
+      fnt: `${distAssets}/fnt`,
+    },
   },
 
   pug: pugData,
 
   sass: {
-    includePaths: ['node_modules'],
+    includePaths: ['node_modules/normalize.css'],
   },
 };
 
