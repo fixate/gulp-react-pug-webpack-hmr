@@ -15,9 +15,9 @@ const store = createStore(reducers);
 
 const App = () => (
   <Provider store={store}>
-    <Router history={history}>
+    <BrowserRouter history={history}>
       <Layout />
-    </Router>
+    </BrowserRouter>
   </Provider>
 );
 
