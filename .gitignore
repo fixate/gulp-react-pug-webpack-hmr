@@ -16,3 +16,4 @@ npm-debug.log
 src/assets/img/*
 !src/assets/img/raw
 src/partials/svg/inline-icons.svg.pug
+/yarn-error.log
