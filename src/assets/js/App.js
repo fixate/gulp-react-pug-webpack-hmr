@@ -1,23 +1,27 @@
-import React from 'react';
-import {Provider} from 'react-redux';
-import {ConnectedRouter} from 'react-router-redux';
-import createHistory from 'history/createBrowserHistory';
+// if you find yourself needing redux bindings
+// see https://github.com/supasate/connected-react-router
 
-import createStore from './store';
-import reducers from './reducers';
-import Layout from './views/layout';
+import React from "react";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import createHistory from "history/createBrowserHistory";
+
+import createStore from "./store";
+import reducers from "./reducers";
+import Layout from "./views/layout";
 
 const history = createHistory();
 const store = createStore(reducers);
 
-const App = () =>
+const App = () => (
   <Provider store={store}>
-    <ConnectedRouter history={history}>
+    <BrowserRouter history={history}>
       <Layout />
-    </ConnectedRouter>
-  </Provider>;
+    </BrowserRouter>
+  </Provider>
+);
 
-App.displayName = 'App';
+App.displayName = "App";
 
 App.propTypes = {};
 

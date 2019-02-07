@@ -1,9 +1,10 @@
-import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
+// if you find yourself needing redux bindings
+// see https://github.com/supasate/connected-react-router
 
-import helloReducer from './hello';
+import { combineReducers } from "redux";
+
+import helloReducer from "./hello";
 
 export default combineReducers({
-  helloStore: helloReducer,
-  routing: routerReducer,
+  helloStore: helloReducer
 });

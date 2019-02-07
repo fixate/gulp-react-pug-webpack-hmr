@@ -1,8 +1,8 @@
-const devPath = 'src';
+const devPath = "src";
 const devAssets = `${devPath}/assets`;
-const distPath = 'dist';
+const distPath = "dist";
 const distAssets = `${distPath}/assets`;
-const pugData = require('./pug');
+const pugData = require("./pug");
 
 const config = {
   path: {
@@ -13,7 +13,7 @@ const config = {
       js: `${devAssets}/js`,
       img: `${devAssets}/img`,
       fnt: `${devAssets}/fnt`,
-      views: `${devPath}/views`,
+      views: `${devPath}/views`
     },
     dist: {
       app: distPath,
@@ -21,15 +21,15 @@ const config = {
       css: `${distAssets}/css`,
       js: `${distAssets}/js`,
       img: `${distAssets}/img`,
-      fnt: `${distAssets}/fnt`,
-    },
+      fnt: `${distAssets}/fnt`
+    }
   },
 
   pug: pugData,
 
   sass: {
-    includePaths: ['node_modules/normalize.css'],
-  },
+    includePaths: ["node_modules/normalize.css"]
+  }
 };
 
 module.exports = config;

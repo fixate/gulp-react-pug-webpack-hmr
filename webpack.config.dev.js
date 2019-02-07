@@ -13,6 +13,8 @@ module.exports = {
     ],
   },
 
+  mode: 'development',
+
   output: {
     path: path.join(__dirname, '../', conf.path.dist.js),
     publicPath: webpackBase.output.publicPath,
@@ -35,7 +37,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ['react-hot-loader', 'babel-loader?cacheDirectory'],
+        use: ['react-hot-loader/webpack', 'babel-loader?cacheDirectory'],
       },
     ],
   },

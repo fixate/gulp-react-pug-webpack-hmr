@@ -1,6 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
+
 const conf = require('./gulp/gulpconfig');
 const webpackBase = require('./webpack.config.base');
 
@@ -15,6 +18,8 @@ module.exports = {
 
   resolve: webpackBase.resolve,
 
+  mode: 'production',
+
   module: {
     rules: [
       {
@@ -25,11 +30,17 @@ module.exports = {
     ],
   },
 
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        parallel: true,
+        sourceMap: true,
+      })
+    ],
+  },
+
   plugins: [].concat.apply(
     [
-      new webpack.optimize.UglifyJsPlugin({
-        sourceMap: false,
-      }),
       new webpack.DefinePlugin({
         'process.env': {
           NODE_ENV: JSON.stringify('production'),
